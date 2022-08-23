@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3c6382;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background-color: #0a3d62;
+    padding: 10px 0 10px 0;
+    margin-bottom: 20px;
+}
+
+/* Main */
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 30px
+}
+
+/* Container */
+.container {
+    border: 3px solid black;
+    background-color: white; 
+    width: 500px;
+    height: 500px;
+    display: grid;
+    flex: 0 1 auto;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.controls div {
+    background-color: white;
+    text-align: center;
+}
+
