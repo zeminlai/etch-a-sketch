@@ -73,7 +73,8 @@ body {
     margin: 0 auto 10px auto;
 }
 
-#eraser-img {
-    width: 150px;
+#eraser-img ,
+#pencil-img{
+    width: 120px;
     height: auto;
 }

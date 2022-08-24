@@ -3,7 +3,7 @@ let squareNum = length * length;
 let square = [];
 let container = document.querySelector(".container");
 let gridColumnNum = "";
-let color = "blue";
+let color = "#00d2d3";
 let rainbowStatus = 0;
 let eraserStatus = 0;
 let pencilStatus = 0;
@@ -104,31 +104,31 @@ function getRandomRgb() {
 }
 
 function eraserToggle() {
-    let eraserBtn = document.querySelector(".eraser");
+    let eraserBtn = document.querySelector("#eraser-img");
     eraserBtn.addEventListener("click", (e) => {
         if (eraserStatus === 0) {
             eraserStatus = 1;
-            eraserBtn.style = "background-color: #78e08f";
+            eraserBtn.style = "filter: brightness(80%)";
         }
         else {
             eraserStatus = 0;
-            eraserBtn.style = "background-color: #10ac84";
-            color = "blue";
+            eraserBtn.style = "filter: brightness(100%)";
+            color = "#00d2d3";
         }
     })
 }
 
 function pencilToggle() {
-    let pencilBtn = document.querySelector(".pencil");
+    let pencilBtn = document.querySelector("#pencil-img");
     pencilBtn.addEventListener("click", (e) => {
         if (pencilStatus === 0) {
             pencilStatus = 1;
             pencilBtn.style = "filter: brightness(80%)";
         }
         else {
-            pencilBtn.style = "background-color: #10ac84";
+            pencilBtn.style = "filter: brightness(100%)";
             pencilStatus = 0;
-            color = "blue";
+            color = "#00d2d3";
         }
     })
 }
