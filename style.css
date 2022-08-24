@@ -2,6 +2,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #3c6382;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Header */
@@ -34,10 +38,6 @@ body {
     flex: 0 1 auto;
 }
 
-.filter {
-    filter: brightness(90%);
-}
-
 /* Controls */
 .controls {
     display: flex;
@@ -49,6 +49,7 @@ body {
 }
 
 .controls button {
+    width: 150px;
     background-color: #10ac84;
     color: white;
     text-decoration: none;
@@ -71,10 +72,53 @@ body {
     height: 50px;
     border-radius: 5px;
     margin: 0 auto 10px auto;
+    cursor: pointer;
 }
 
 #eraser-img ,
 #pencil-img{
     width: 120px;
     height: auto;
+}
+
+#eraser-img:hover,
+#pencil-img:hover,
+.controls button:hover,
+.color-picker input:hover,
+.slider input:hover{
+    transform: scale(1.05);
+}
+
+.slider input {
+    cursor: pointer;
+}
+
+.controls .rainbow {
+    background-image: linear-gradient(to right,#5f27cd,#27ae60, #8e44ad,#ee5253,#5f27cd);
+    border: 2px solid white;
+}
+
+.rainbow:hover {
+    animation: slidebg 200s linear infinite;
+}
+
+@keyframes slidebg {
+    to {
+        background-position: 5000px;
+    }
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
+    background-color: #222f3e;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+}
+
+.footer a{
+    color: white;
+    cursor: pointer;
 }

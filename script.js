@@ -90,11 +90,11 @@ function rainbowToggle() {
     rainbowBtn.addEventListener("click", (e) => {
         if (rainbowStatus === 0) {
             rainbowStatus = 1;
-            rainbowBtn.style = "background-color: #78e08f";
+            rainbowBtn.style = "animation: slidebg 60s linear infinite";
         }
         else {
             rainbowStatus = 0;
-            rainbowBtn.style = "background-color: #10ac84";
+            rainbowBtn.style = "background-image: linear-gradient(to right,#5f27cd,#27ae60, #8e44ad,#ee5253,#5f27cd)";
         }
     })
 }
