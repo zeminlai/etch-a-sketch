@@ -12,13 +12,16 @@ body {
     background-color: #0a3d62;
     padding: 10px 0 10px 0;
     margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
 }
 
 /* Main */
 .main {
     display: flex;
     justify-content: center;
-    gap: 30px
+    gap: 30px;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Container */
@@ -31,6 +34,10 @@ body {
     flex: 0 1 auto;
 }
 
+.filter {
+    filter: brightness(90%);
+}
+
 /* Controls */
 .controls {
     display: flex;
@@ -38,18 +45,35 @@ body {
     justify-content: space-evenly;
 }
 .controls div {
-    background-color: white;
     text-align: center;
 }
 
 .controls button {
-    background-color: white;
+    background-color: #10ac84;
+    color: white;
     text-decoration: none;
     border: none;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 25px;
+}
+
+.color-picker,
+.lengthText {
+    color: white;
+    display: flex;
+    flex-direction:column;
 }
 
 .color-picker input {
     width: 50px;
     height: 50px;
     border-radius: 5px;
+    margin: 0 auto 10px auto;
+}
+
+#eraser-img {
+    width: 150px;
+    height: auto;
 }

@@ -1,12 +1,14 @@
 let length = 30;
 let squareNum = length * length;
-console.log(squareNum)
 let square = [];
 let container = document.querySelector(".container");
 let gridColumnNum = "";
 let color = "blue";
 let rainbowStatus = 0;
 let eraserStatus = 0;
+let pencilStatus = 0;
+let opacity = [];
+let clearStatus = 0;
 
 buildGridTemplateColumns();
 container.style = "grid-template-columns:"+ gridColumnNum;
@@ -16,6 +18,8 @@ changeGrid();
 colorPick();
 rainbowToggle();
 eraserToggle();
+pencilToggle();
+clearToggle();
 
 function changeGrid() {
     let slider = document.getElementById("myRange");
@@ -46,21 +50,25 @@ function appendSquares(){
         container.appendChild(square[i]);
         // square[i].style = "border: 0.5px solid black";
         square[i].classList.add(`square${i}`);
+        initializePencilOpacity(i);
     }
 }
 
 function hoverTrail() {
     for (let i = 0; i < squareNum; i++){
         square[i].addEventListener("mouseover", (e)=>{
-            console.log(e.target);
             // Check if rainbow button is on
             if (eraserStatus === 1) {
                 color = "white";
             }
-            else if (rainbowStatus === 1){
+            else if (rainbowStatus === 1 && pencilStatus === 0){
                 color = `rgb(${getRandomRgb()},${getRandomRgb()},${getRandomRgb()})`;
             }
-            e.target.style = "background-color: "+color;
+            else if (pencilStatus === 1 && rainbowStatus === 0){
+                color = "rgba(0,0,0,"+opacity[i]+")";
+                opacity[i]+= 0.15;
+            }
+            e.target.style = `background-color: ${color}`;
         })
     }
 }
@@ -86,7 +94,7 @@ function rainbowToggle() {
         }
         else {
             rainbowStatus = 0;
-            rainbowBtn.style = "background-color: white";
+            rainbowBtn.style = "background-color: #10ac84";
         }
     })
 }
@@ -104,8 +112,36 @@ function eraserToggle() {
         }
         else {
             eraserStatus = 0;
-            eraserBtn.style = "background-color: white";
+            eraserBtn.style = "background-color: #10ac84";
             color = "blue";
+        }
+    })
+}
+
+function pencilToggle() {
+    let pencilBtn = document.querySelector(".pencil");
+    pencilBtn.addEventListener("click", (e) => {
+        if (pencilStatus === 0) {
+            pencilStatus = 1;
+            pencilBtn.style = "filter: brightness(80%)";
+        }
+        else {
+            pencilBtn.style = "background-color: #10ac84";
+            pencilStatus = 0;
+            color = "blue";
+        }
+    })
+}
+
+function initializePencilOpacity (i) {
+    opacity[i] = 0.1;
+}
+
+function clearToggle() {
+    let clearBtn = document.querySelector(".clear");
+    clearBtn.addEventListener("click", (e) => {
+        for (let i = 0; i < squareNum; i++) {
+            square[i].style = "background-color: white";
         }
     })
 }
