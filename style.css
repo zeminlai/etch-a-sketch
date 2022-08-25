@@ -97,7 +97,7 @@ body {
 #eraser-img:hover,
 #pencil-img:hover,
 .controls button:hover,
-.color-picker input:hover,
+.color-picker-wrapper:hover,
 .slider input:hover{
     transform: scale(1.05);
 }
